@@ -5,4 +5,9 @@ export default {
   logout: 'خروج',
   BidsHeader: 'أحدث الطلبات',
   BidsCount: `{{count}} طلب`,
+  BidCardHowManyDays: `منذ {{days}} يوم`,
+  BidDetailsVehicleCard: 'نوع المركبة',
+  BidDetailsServiceCard: 'الخدمة المطلوبة',
+  BidDetailsDateCard: 'تاريخ التنفيذ',
+  BidDetailsButton: 'تقديم عرض سعر',
 };

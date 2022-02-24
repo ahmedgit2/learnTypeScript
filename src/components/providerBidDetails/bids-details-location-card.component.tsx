@@ -3,26 +3,17 @@ import {View} from 'react-native';
 
 import {styles} from './style';
 import {AppGrid, AppTextLogo, AppText} from '../../commons';
+import {BidsDetails} from '../../models';
 
 interface Props {
-  data: {
-    id: number;
-    status: string;
-    createdAt: string;
-    client: {
-      rate: string;
-      user: {name: string; profileImg: {thumbnail: string}};
-    };
-    pickUpCity: {name: string; governorate: {name: string}};
-    dropOffCity: {name: string; governorate: {name: string}};
-  };
+  data: BidsDetails | undefined;
 }
 
 export const BidDetailsLocationCard: FC<Props> = props => {
   const {data} = props;
-  const title = `${data.pickUpCity.governorate.name} - ${data.dropOffCity.governorate.name}`;
-  const pickUpCity = `${data.pickUpCity.name} - ${data.pickUpCity.governorate.name}`;
-  const dropOffCity = `${data.dropOffCity.name} -${data.dropOffCity.governorate.name}`;
+  const title = `${data?.pickUpCity.governorate.name} - ${data?.dropOffCity.governorate.name}`;
+  const pickUpCity = `${data?.pickUpCity.name} - ${data?.pickUpCity.governorate.name}`;
+  const dropOffCity = `${data?.dropOffCity.name} -${data?.dropOffCity.governorate.name}`;
 
   return (
     <AppGrid style={styles.cardGridStyle}>

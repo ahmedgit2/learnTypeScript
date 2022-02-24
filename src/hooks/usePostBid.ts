@@ -1,14 +1,8 @@
 import {useState} from 'react';
 import {postOffer} from '../api';
+import {PostOffer} from '../models';
 
-interface Props {
-  orderBidId: number;
-  transportationPrice: number;
-  providerVehicle: number;
-  notes: string;
-}
-
-export const usePostOffer = (props: Props) => {
+export const usePostOffer = (props: PostOffer) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<any>('');
 

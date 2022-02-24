@@ -1,10 +1,15 @@
 import {useEffect, useRef, useState} from 'react';
 import {getVehicles} from '../api';
+import {ProviderVehicles} from '../models';
 
-export const useGetVehicles = ProviderId => {
-  const [data, setData] = useState();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+interface Props {
+  id: number;
+}
+
+export const useGetVehicles = (props: Props) => {
+  const [data, setData] = useState<ProviderVehicles>();
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<any>();
 
   useEffect(() => {
     Vehicles();
@@ -15,7 +20,7 @@ export const useGetVehicles = ProviderId => {
       // set loading coming from calling func
       //cal func to get api
       setLoading(true);
-      const providerVehicles = await getVehicles({id: ProviderId});
+      const providerVehicles = await getVehicles(props);
 
       // check data
       if (providerVehicles.data.length) {

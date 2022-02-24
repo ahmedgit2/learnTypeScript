@@ -5,7 +5,7 @@ import {AppGrid, AppText} from '../../commons';
 import {appColor} from '../../utils';
 
 interface Props {
-  text: string;
+  text: any;
   title: string;
 }
 

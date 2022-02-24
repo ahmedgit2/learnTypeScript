@@ -11,6 +11,7 @@ export const getProviderBids = async ({
     const providerBids = await axios.get(
       `order-bids/eligible-bids?page=${page}&limit=20&lat=${lat}&lng=${lng}&orderType=${orderType}`,
     );
+
     return providerBids.data;
   } catch (error) {
     throw mapAxiosError(error);

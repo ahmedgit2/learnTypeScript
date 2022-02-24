@@ -1,25 +1,27 @@
 import {StyleSheet} from 'react-native';
+import {appColor} from '../../utils';
 
 export const styles = StyleSheet.create({
   headerStyle: {
     flexDirection: 'row',
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'flex-end',
     elevation: 5,
     backgroundColor: '#FAF9F6',
-    margin: 8,
-    borderRadius: 10,
+    margin: 10,
+    borderRadius: 5,
+    height: 55,
   },
   buttonStyle: {
-    padding: 5,
     height: 40,
-    width: 100,
+    top: 27,
     alignSelf: 'flex-end',
+    width: 100,
   },
   textStyle: {
-    marginHorizontal: 15,
-    fontSize: 16,
-    color: '#000',
-    alignSelf: 'center',
+    marginLeft: 15,
+    fontSize: 17,
+    color: appColor.darkGray,
+    alignSelf: 'flex-start',
   },
 });

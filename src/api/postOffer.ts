@@ -1,14 +1,8 @@
+import {PostOffer} from './../models/post-offer.models';
 import {axios} from '../utils';
 import {mapAxiosError} from '../utils/mappedError';
 
-interface Props {
-  orderBidId: number;
-  transportationPrice: number;
-  providerVehicle: number;
-  notes: string;
-}
-
-export const postOffer = async (props: Props) => {
+export const postOffer = async (props: PostOffer) => {
   const {orderBidId, transportationPrice, providerVehicle, notes} = props;
   try {
     const res = await axios.post(`order-bids/${orderBidId}/offers`, {

@@ -1,7 +1,10 @@
-export const howManyDays = createDay => {
+import I18n from 'react-native-i18n';
+
+export const howManyDays = (createDay: string) => {
   const createdAt = new Date(createDay);
   const Today = Date.now();
-  Difference_In_Days = Math.floor((Today - createdAt) / (1000 * 60 * 60 * 24));
-
-  return `منذ ${Difference_In_Days} يوم`;
+  const Difference_In_Days = Math.floor(
+    (Today - createdAt) / (1000 * 60 * 60 * 24),
+  );
+  return I18n.t('BidCardHowManyDays', {days: Difference_In_Days});
 };

@@ -1,26 +1,37 @@
-import React, {FC} from 'react';
-import {View, Text} from 'react-native';
+import React, {FC, useState} from 'react';
+import {View} from 'react-native';
 import {AppButton, AppText} from '../../commons';
-import {Lang} from '../../utils';
-import {styles} from './style';
 import I18n from 'react-native-i18n';
+import {styles} from './style';
+import {Lang} from '../../utils';
+import en from '../../i18n/en';
+import ar from '../../i18n/ar';
+import {useAppDispatch} from '../../hooks';
+import {toggleLang} from '../../redux';
 
 interface Props {
-  language: Lang;
-  onPress: () => void;
+  lang: Lang;
 }
 
 export const LoginHeader: FC<Props> = props => {
+  const [langText, setLangText] = useState<string>(
+    props.lang === Lang.en ? en.currentLang : ar.currentLang,
+  );
+  const dispatch = useAppDispatch();
+
   return (
-    <>
-      <View style={styles.headerStyle}>
-        <AppText style={styles.textStyle}>{I18n.t('currentLang')}</AppText>
-        <AppButton
-          onPress={props.onPress}
-          title="عربي / En"
-          style={styles.buttonStyle}
-        />
-      </View>
-    </>
+    <View style={styles.headerStyle}>
+      <AppText style={styles.textStyle}>{langText}</AppText>
+      <AppButton
+        onPress={() => {
+          setLangText(
+            langText === ar.currentLang ? en.currentLang : ar.currentLang,
+          );
+          dispatch(toggleLang(langText === ar.currentLang ? Lang.en : Lang.ar));
+        }}
+        title="عربي / En"
+        style={styles.buttonStyle}
+      />
+    </View>
   );
 };

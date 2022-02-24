@@ -5,3 +5,4 @@ export * from './handelErrors';
 export * from './howManyDays';
 export * from './mappedError';
 export * from './lang';
+export * from './RootScreens';

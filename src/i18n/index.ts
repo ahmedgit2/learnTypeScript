@@ -8,7 +8,7 @@ export const availableLanguages = {
   en,
 };
 
-export const langConfig = (lang?: Lang) => {
+export const langConfig = (lang: Lang) => {
   // set default lang
   let defaultLang = lang;
 

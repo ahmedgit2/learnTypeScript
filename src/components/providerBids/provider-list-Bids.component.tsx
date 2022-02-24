@@ -3,28 +3,21 @@ import React, {FC} from 'react';
 import {AppLoading} from '../../commons';
 import {ProviderBidsCard} from './provider-bids-card.component';
 import {useNavigation} from '@react-navigation/native';
+import {Bid} from '../../models';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../navigator';
 
 interface Props {
+  data: Bid[];
   loading: boolean;
   refresh: boolean;
-  data: [
-    {
-      id: number;
-      createdAt: string;
-      client: {
-        rate: string;
-        user: {name: string; profileImg: {thumbnail: string}};
-      };
-      pickUpCity: {name: string; governorate: {name: string}};
-      dropOffCity: {name: string; governorate: {name: string}};
-    },
-  ];
   refreshing: () => void;
   fetchMore: () => void;
 }
 
 export const ProviderListBids: FC<Props> = props => {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   return (
     <FlatList
@@ -36,10 +29,8 @@ export const ProviderListBids: FC<Props> = props => {
       ListFooterComponent={() => (props.loading && <AppLoading />) || null}
       renderItem={({item}) => (
         <ProviderBidsCard
-          bids={item}
-          onPress={() =>
-            navigation.navigate('details' as never, {bidId: item.id} as never)
-          }
+          date={item}
+          onPress={() => navigation.navigate('detailsScreen', {bidId: item.id})}
         />
       )}
     />

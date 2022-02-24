@@ -1,18 +1,19 @@
+import {Lang} from './../../utils/lang';
 import {appColor} from '../../utils';
 import {store} from '../../redux';
 import {StyleSheet} from 'react-native';
 
-const lang = store.getState().lang.value;
-
-export const styles = StyleSheet.create({
-  containerStyle: {
-    flexDirection: lang === 'ar' ? 'row' : 'row-reverse',
-    margin: 5,
-    alignItems: 'center',
-  },
-  textStyle: {
-    marginHorizontal: 3,
-    color: appColor.rateText,
-    fontSize: 14,
-  },
-});
+export const styles = (lang: Lang) => {
+  return StyleSheet.create({
+    containerStyle: {
+      flexDirection: lang === 'ar' ? 'row' : 'row-reverse',
+      margin: 5,
+    },
+    textStyle: {
+      marginHorizontal: 3,
+      color: appColor.rateText,
+      fontSize: 14,
+      alignSelf: lang === 'ar' ? 'flex-end' : 'flex-start',
+    },
+  });
+};

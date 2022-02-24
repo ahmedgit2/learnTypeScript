@@ -1,12 +1,14 @@
 import React, {FC} from 'react';
-import {Image} from 'react-native';
+import {Image, ImageStyle, StyleProp} from 'react-native';
 import {styles} from './style';
 
 interface Props {
-  style?: object;
-  src: _SourceUri;
+  style?: StyleProp<ImageStyle>;
+  src: string | undefined;
 }
 
 export const AppImage: FC<Props> = props => {
-  return <Image style={[styles.imageStyle, props.style]} source={props.src} />;
+  return (
+    <Image style={[styles.imageStyle, props.style]} source={{uri: props.src}} />
+  );
 };

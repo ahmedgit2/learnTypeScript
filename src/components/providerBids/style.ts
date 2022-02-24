@@ -1,7 +1,7 @@
+import {Lang} from './../../utils/lang';
 import {StyleSheet} from 'react-native';
-import {store} from '../../store/store';
 
-export const styles = lang => {
+export const styles = (lang: Lang) => {
   return StyleSheet.create({
     headerStyle: {
       marginHorizontal: 20,
@@ -17,35 +17,32 @@ export const styles = lang => {
 
     cardTextContainerStyle: {
       flexGrow: 1,
+      alignItems: lang === 'ar' ? 'flex-end' : 'flex-start',
     },
     bidLocationContainerStyle: {
       flexGrow: 1,
       marginBottom: 15,
-      marginRight: 20,
+      marginHorizontal: 15,
       alignSelf: 'stretch',
       alignItems: lang === 'ar' ? 'flex-end' : 'flex-start',
     },
     bidDateContainerStyle: {
       flexDirection: 'row',
-      flexGrow: 1,
       alignSelf: lang === 'ar' ? 'flex-start' : 'flex-end',
-
       marginTop: 5,
-      marginBottom: 10,
     },
     cardContainerStyle: {
-      margin: 15,
+      margin: 10,
       flexGrow: 1,
       flexDirection: lang === 'ar' ? 'row' : 'row-reverse',
-      justifyContent: 'flex-end',
     },
     clientNameContainerStyle: {
       flexDirection: lang === 'ar' ? 'row' : 'row-reverse',
       flexGrow: 1,
-      justifyContent: 'flex-end',
-      alignItems: 'center',
       marginHorizontal: 10,
-      marginTop: 10,
+      marginTop: 5,
+      alignItems: 'flex-start',
+      justifyContent: 'flex-start',
     },
     buttonStyle: {
       flexGrow: 1,

@@ -4,6 +4,7 @@ import {mapAxiosError} from '../utils/mappedError';
 interface Props {
   id: number;
 }
+
 export const getVehicles = async (props: Props) => {
   const {id} = props;
 

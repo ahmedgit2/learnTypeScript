@@ -1,3 +1,4 @@
+import {Lang} from './../../utils/lang';
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {RootState} from '../store/store';
 
@@ -15,8 +16,8 @@ export const langSlice = createSlice({
   name: 'lang',
   initialState,
   reducers: {
-    toggleLang: state => {
-      state.value === 'ar' ? (state.value = 'en') : (state.value = 'ar');
+    toggleLang: (state, action: PayloadAction<Lang>) => {
+      state.value = action.payload;
     },
   },
 });

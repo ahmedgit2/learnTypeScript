@@ -1,20 +1,25 @@
 import {useEffect, useRef, useState} from 'react';
 import {getOrderBidDetails} from '../api';
+import {BidsDetails} from '../models';
 
-export const useGetBidDetails = (id: number) => {
-  const [data, setData] = useState();
+interface Props {
+  id: number;
+}
+
+export const useGetBidDetails = (props: Props) => {
+  const [data, setData] = useState<BidsDetails>();
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<any>();
+  const [error, setError] = useState<string | any>();
 
   useEffect(() => {
     setLoading(true);
-    getBidDetails(id);
+    getBidDetails();
   }, []);
 
-  const getBidDetails = async (id: number) => {
+  const getBidDetails = async () => {
     try {
-      const Bid = await getOrderBidDetails(id);
-      setData(Bid);
+      const BidDetails = await getOrderBidDetails(props);
+      setData(BidDetails);
     } catch (error) {
       setError(error);
     } finally {

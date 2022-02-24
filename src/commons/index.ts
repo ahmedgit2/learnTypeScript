@@ -5,7 +5,6 @@ export * from './errorModal/error-modal.common';
 export * from './grid/grid.common';
 export * from './loading/loading.common';
 export * from './rate/rate.common';
-export * from './dateTimeText/date-time-text.common';
 export * from './radio/radio-text-selectable.common';
 export * from './image/image.common';
 export * from './textWithLogo/text-with-logo.common';

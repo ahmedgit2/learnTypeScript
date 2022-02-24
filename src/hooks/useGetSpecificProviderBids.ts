@@ -1,14 +1,15 @@
 import {useEffect, useRef, useState} from 'react';
 import {getProviderBids} from '../api';
+import {Bid} from '../models';
 
-export const useGetSpecificProviderBids = (lat, lng, orderType) => {
-  const [page, setPage] = useState(1);
-  const [data, setData] = useState();
-  const [loading, setLoading] = useState(false);
-  const [refresh, setRefresh] = useState(false);
-  const [totalBidsCount, setTotalBidsCount] = useState(false);
-  const [pageCount, setPageCount] = useState();
-  const [error, setError] = useState('');
+export const useGetSpecificProviderBids = (lat?: number, lng?: number) => {
+  const [page, setPage] = useState<number>(1);
+  const [data, setData] = useState<Bid[]>();
+  const [loading, setLoading] = useState<boolean>(false);
+  const [refresh, setRefresh] = useState<boolean>(false);
+  const [totalBidsCount, setTotalBidsCount] = useState<number>(0);
+  const [pageCount, setPageCount] = useState<Number>(1);
+  const [error, setError] = useState<string | any>();
 
   useEffect(() => {
     if (page == 1) {
@@ -48,7 +49,7 @@ export const useGetSpecificProviderBids = (lat, lng, orderType) => {
           setData(providerBids.data);
         }
         if (page > 1) {
-          setData([...data, ...providerBids.data]);
+          setData([data, ...providerBids.data]);
         }
 
         setTotalBidsCount(providerBids.totalCount);

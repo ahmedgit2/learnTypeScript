@@ -5,11 +5,10 @@ export const styles = StyleSheet.create({
   containerStyle: {
     flexDirection: 'row',
     marginHorizontal: 10,
-
     margin: 5,
   },
   textStyle: {
-    marginHorizontal: 10,
+    marginHorizontal: 5,
     fontSize: 16,
     color: appColor.darkGray,
   },

@@ -1,19 +1,21 @@
 import {useEffect, useState} from 'react';
 import {getProviderBids} from '../api';
+import {Bid} from '../models';
 
 export const useGetProviderBids = (lat?: number, lng?: number) => {
-  const [page, setPage] = useState(1);
-  const [data, setData] = useState<any | undefined>();
-  const [loading, setLoading] = useState(false);
-  const [refresh, setRefresh] = useState(false);
+  const [page, setPage] = useState<number>(1);
+  const [data, setData] = useState<Bid[]>();
+  const [loading, setLoading] = useState<boolean>(false);
+  const [refresh, setRefresh] = useState<boolean>(false);
   const [totalBidsCount, setTotalBidsCount] = useState<number>(0);
   const [pageCount, setPageCount] = useState<Number>(1);
-  const [error, setError] = useState<any>();
+  const [error, setError] = useState<string | any>();
 
   useEffect(() => {
-    if (page == 1) {
-      getBids();
-    } else if (page > 1 && pageCount >= page) {
+    // if (page == 1) {
+    //   getBids();
+    // } else
+    if (page >= 1 && pageCount >= page) {
       getBids();
     }
   }, [page]);
@@ -41,14 +43,16 @@ export const useGetProviderBids = (lat?: number, lng?: number) => {
         lng: lng,
         orderType: 'GENERAL',
       });
+
       // check data
       if (providerBids.data.length) {
         setPageCount(providerBids.pageCount);
+
         if (page == 1) {
           setData(providerBids.data);
         }
         if (page > 1) {
-          setData([...data, ...providerBids.data]);
+          setData([...(data as Bid[]), ...providerBids.data]);
         }
         setTotalBidsCount(providerBids.totalCount);
       }

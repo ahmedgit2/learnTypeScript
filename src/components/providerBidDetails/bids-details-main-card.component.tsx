@@ -3,32 +3,23 @@ import React, {FC} from 'react';
 import {AppGrid, AppImage, AppRate, AppText} from '../../commons';
 import {styles} from './style';
 import {appColor, howManyDays} from '../../utils';
+import {BidsDetails} from '../../models';
 
 interface Props {
-  data: {
-    id: number;
-    status: string;
-    createdAt: string;
-    client: {
-      rate: string;
-      user: {name: string; profileImg: {thumbnail: string}};
-    };
-    pickUpCity: {name: string; governorate: {name: string}};
-    dropOffCity: {name: string; governorate: {name: string}};
-  };
+  data: BidsDetails | undefined;
 }
 
 export const BidDetailsMainCard: FC<Props> = props => {
   const {data} = props;
-  const status = data.status == 'PENDING' ? 'قيد الإنتظار' : 'تم';
-  const createDay = howManyDays(data.createdAt);
+  const status = data?.status == 'PENDING' ? 'قيد الإنتظار' : 'تم';
+  const createDay = howManyDays(data?.createdAt as string);
   return (
     <AppGrid style={styles.cardGridStyle}>
       <View style={styles.cardContainerStyle}>
         <View style={styles.cardTextContainerStyle}>
           <View style={styles.clientNameContainerStyle}>
-            <AppRate text={data.client.rate} />
-            <AppText>{data.client.user.name}</AppText>
+            <AppRate text={data?.client.rate.toString()} />
+            <AppText>{data?.client.user.name}</AppText>
           </View>
 
           <View style={styles.bidDateContainerStyle}>
@@ -44,7 +35,7 @@ export const BidDetailsMainCard: FC<Props> = props => {
             </AppText>
           </View>
         </View>
-        <AppImage src={{uri: data.client.user.profileImg.thumbnail}} />
+        <AppImage src={data?.client.user.profileImg.thumbnail} />
       </View>
     </AppGrid>
   );
