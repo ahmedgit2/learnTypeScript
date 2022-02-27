@@ -1,3 +1,5 @@
+import {City, Client, Country, Location, VehicleType} from '.';
+
 export interface BidsDetails {
   id: number;
   orderType: string;
@@ -12,78 +14,17 @@ export interface BidsDetails {
   needCooling: boolean;
   canBeBroken: boolean;
   expectedWeight: string;
-  vehicleTypes: [name: string];
+  vehicleTypes: VehicleType[];
   details: string;
   dropOffLocationDesc: string;
-  dropOffLocation: {
-    deleted: boolean;
-    longitude: number;
-    latitude: number;
-  };
-  dropOffCity: {
-    country: string;
-    governorate: {
-      country: string;
-      name: string;
-      createdAt: string;
-      updatedAt: string;
-      id: number;
-    };
-    name: string;
-    createdAt: string;
-    updatedAt: string;
-    id: number;
-  };
+  dropOffLocation: Location;
+  dropOffCity: City;
   pickUpLocationDesc: string;
-  pickUpLocation: {
-    deleted: boolean;
-    longitude: number;
-    latitude: number;
-  };
-  pickUpCity: {
-    country: string;
-    governorate: {
-      country: string;
-      name: string;
-      createdAt: string;
-      updatedAt: string;
-      id: number;
-    };
-    name: string;
-    createdAt: string;
-    updatedAt: string;
-    id: number;
-  };
+  pickUpLocation: Location;
+  pickUpCity: City;
   serviceType: string;
-  country: {
-    name: string;
-    createdAt: string;
-    updatedAt: string;
-    id: string;
-  };
-  client: {
-    blocked: boolean;
-    rate: number;
-    user: {
-      country: string;
-      profileImg: {
-        original: string;
-        thumbnail: string;
-      };
-      phone: string;
-      name: string;
-      testingAccount: boolean;
-      deleted: boolean;
-      createdAt: string;
-      updatedAt: string;
-      email: string;
-      id: number;
-    };
-    deleted: boolean;
-    createdAt: string;
-    updatedAt: string;
-    id: number;
-  };
+  country: Country;
+  client: Client;
   createdAt: string;
   updatedAt: string;
   acceptedOffer: any;

@@ -1,10 +1,11 @@
 import React, {FC, useState} from 'react';
 import {View} from 'react-native';
 import {ClickableText} from '../../commons';
+import {ProviderVehicles} from '../../models';
 import {styles} from './style';
 
 interface Props {
-  data: [{id: number; vehicleModel: {name: string}}];
+  data: ProviderVehicles[];
   passSelected: (value: number) => void;
 }
 

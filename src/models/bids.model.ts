@@ -1,3 +1,5 @@
+import {City} from './city.model';
+import {Client, Country, Location, VehicleType} from '.';
 export interface Bid {
   id: number;
   orderType: string;
@@ -11,84 +13,17 @@ export interface Bid {
   needCooling: boolean;
   canBeBroken: boolean;
   expectedWeight: string;
-  vehicleTypes: [
-    {
-      _id: [];
-      typeImage: string;
-      category: string;
-      name: string;
-      createdAt: string;
-      updatedAt: string;
-    },
-  ];
+  vehicleTypes: VehicleType;
   details: string;
   dropOffLocationDesc: string;
-  dropOffLocation: {
-    deleted: boolean;
-    longitude: number;
-    latitude: number;
-  };
-  dropOffCity: {
-    country: string;
-    name: string;
-    createdAt: string;
-    updatedAt: string;
-    id: number;
-    governorate: {
-      country: string;
-      name: string;
-      createdAt: string;
-      updatedAt: string;
-      id: number;
-    };
-  };
+  dropOffLocation: Location;
+  dropOffCity: City;
   pickUpLocationDesc: string;
-  pickUpLocation: {
-    deleted: false;
-    longitude: number;
-    latitude: number;
-  };
-  pickUpCity: {
-    country: string;
-    governorate: {
-      country: string;
-      name: string;
-      createdAt: string;
-      updatedAt: string;
-      id: number;
-    };
-    name: string;
-    createdAt: string;
-    updatedAt: string;
-    id: number;
-  };
+  pickUpLocation: Location;
+  pickUpCity: City;
   serviceType: string;
-  country: {
-    name: string;
-    createdAt: string;
-    updatedAt: string;
-    id: string;
-  };
-  client: {
-    blocked: boolean;
-    rate: number;
-    user: {
-      country: string;
-      profileImg: {
-        original: string;
-        thumbnail: string;
-      };
-      phone: string;
-      name: string;
-      testingAccount: boolean;
-      deleted: boolean;
-      id: number;
-    };
-    deleted: false;
-    createdAt: string;
-    updatedAt: string;
-    id: number;
-  };
+  country: Country;
+  client: Client;
   createdAt: string;
   updatedAt: string;
   distanceFromPickupInKm: number;

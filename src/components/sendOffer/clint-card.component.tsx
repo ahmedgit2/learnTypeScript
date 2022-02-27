@@ -3,17 +3,10 @@ import {View} from 'react-native';
 import {styles} from './style';
 import {AppGrid, AppImage, AppRate, AppText} from '../../commons';
 import {appColor, howManyDays} from '../../utils';
+import {BidsDetails} from '../../models';
 
 interface Props {
-  data: {
-    createdAt: string;
-    status: string;
-    client: {
-      rate: string;
-      user: {name: string; profileImg: {thumbnail: string}};
-    };
-  };
-  title: string;
+  data: BidsDetails;
 }
 
 export const ClintCard: FC<Props> = props => {
@@ -38,7 +31,7 @@ export const ClintCard: FC<Props> = props => {
             <AppText style={styles.bidStatusStyle}>{status}</AppText>
           </View>
         </View>
-        <AppImage src={{uri: data.client.user.profileImg.thumbnail}} />
+        <AppImage src={data.client.user.profileImg.thumbnail} />
       </View>
     </AppGrid>
   );

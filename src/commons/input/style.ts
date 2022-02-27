@@ -8,6 +8,8 @@ export const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'stretch',
+    flexGrow: 1,
+    marginTop: 5,
   },
   inputContainer: {
     flexDirection: 'row',
@@ -40,9 +42,9 @@ export const styles = StyleSheet.create({
     elevation: 2,
     fontSize: 16,
     textAlign: lang === 'ar' ? 'right' : 'left',
-    marginHorizontal: 20,
+    marginHorizontal: 10,
     flex: 1,
-    paddingHorizontal: 15,
+    paddingHorizontal: 10,
   },
   inputLogo:
     lang === 'ar'
@@ -52,7 +54,7 @@ export const styles = StyleSheet.create({
           elevation: 2,
           fontSize: 16,
           textAlign: 'right',
-          marginHorizontal: 20,
+          marginHorizontal: 10,
           flex: 1,
           paddingRight: 50,
         }
@@ -62,7 +64,7 @@ export const styles = StyleSheet.create({
           elevation: 2,
           fontSize: 16,
           textAlign: 'left',
-          marginHorizontal: 20,
+          marginHorizontal: 10,
           flex: 1,
           paddingLeft: 50,
         },

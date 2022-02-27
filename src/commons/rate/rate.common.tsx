@@ -8,7 +8,7 @@ import {styles as style} from './style';
 
 interface Props {
   style?: object;
-  text: string | undefined;
+  text: number;
   logoSize?: number;
 }
 
@@ -18,11 +18,14 @@ export const AppRate: FC<Props> = props => {
 
   return (
     <View style={styles.containerStyle}>
-      <AppText style={[styles.textStyle, props.style]}>{props.text}</AppText>
+      <AppText style={[styles.textStyle, props.style]}>
+        {props.text?.toString()}
+      </AppText>
       <AntDesign
         name={'star'}
         color={appColor.rateStar}
         size={props.logoSize || 16}
+        style={{alignSelf: 'center'}}
       />
     </View>
   );

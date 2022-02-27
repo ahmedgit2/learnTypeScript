@@ -3,22 +3,24 @@ import {View} from 'react-native';
 import {styles} from './style';
 import {AppGrid, AppText} from '../../commons';
 import {VehiclesSelect} from '.';
+import {ProviderVehicles} from '../../models';
 
 interface Props {
-  data: [{id: number; vehicleModel: {name: string}}];
+  vehicles: ProviderVehicles[];
   passSelected: (value: number) => void;
 }
 
 export const VehiclesCard: FC<Props> = props => {
-  const {data, passSelected} = props;
-
   return (
     <AppGrid style={styles.cardGridStyle}>
       <View style={styles.cardContainerStyle}>
         <View style={styles.clientNameContainerStyle}>
           <View style={styles.vehivlesContainerStyle}>
             <AppText style={{fontWeight: 'bold'}}> {'المركبة'}</AppText>
-            <VehiclesSelect passSelected={passSelected} data={data} />
+            <VehiclesSelect
+              passSelected={props.passSelected}
+              data={props.vehicles}
+            />
           </View>
         </View>
       </View>

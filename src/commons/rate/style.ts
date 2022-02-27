@@ -7,7 +7,7 @@ export const styles = (lang: Lang) => {
   return StyleSheet.create({
     containerStyle: {
       flexDirection: lang === 'ar' ? 'row' : 'row-reverse',
-      margin: 5,
+      marginHorizontal: 5,
     },
     textStyle: {
       marginHorizontal: 3,

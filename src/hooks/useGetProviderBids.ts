@@ -12,11 +12,10 @@ export const useGetProviderBids = (lat?: number, lng?: number) => {
   const [error, setError] = useState<string | any>();
 
   useEffect(() => {
-    // if (page == 1) {
-    //   getBids();
-    // } else
-    if (page >= 1 && pageCount >= page) {
+    if (page >= 1) {
       getBids();
+    } else if (page >= 1 && page >= pageCount) {
+      return;
     }
   }, [page]);
 
@@ -30,7 +29,9 @@ export const useGetProviderBids = (lat?: number, lng?: number) => {
   const fetchMore = () => {
     setError('');
     setPage(page + 1);
-    setLoading(true);
+    if (page >= 1 && page < pageCount) {
+      setLoading(true);
+    }
   };
 
   const getBids = async () => {

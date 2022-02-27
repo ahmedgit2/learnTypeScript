@@ -29,7 +29,7 @@ export const ProviderListBids: FC<Props> = props => {
       ListFooterComponent={() => (props.loading && <AppLoading />) || null}
       renderItem={({item}) => (
         <ProviderBidsCard
-          date={item}
+          data={item}
           onPress={() => navigation.navigate('detailsScreen', {bidId: item.id})}
         />
       )}

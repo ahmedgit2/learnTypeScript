@@ -6,7 +6,7 @@ import {appColor, howManyDays} from '../../utils';
 import {BidsDetails} from '../../models';
 
 interface Props {
-  data: BidsDetails | undefined;
+  data: BidsDetails;
 }
 
 export const BidDetailsMainCard: FC<Props> = props => {
@@ -18,7 +18,7 @@ export const BidDetailsMainCard: FC<Props> = props => {
       <View style={styles.cardContainerStyle}>
         <View style={styles.cardTextContainerStyle}>
           <View style={styles.clientNameContainerStyle}>
-            <AppRate text={data?.client.rate.toString()} />
+            <AppRate text={data?.client.rate} />
             <AppText>{data?.client.user.name}</AppText>
           </View>
 

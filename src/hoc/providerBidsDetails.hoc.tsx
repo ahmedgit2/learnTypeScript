@@ -5,7 +5,7 @@ import {AppButton, AppLoading, AppText} from '../commons';
 import {formatDate} from '../utils';
 import {RootStackParamList} from '../navigator';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Bid, BidsDetails} from '../models';
+import {BidsDetails} from '../models';
 import i18n from 'react-native-i18n';
 import {
   BidDetailsHeader,
@@ -26,7 +26,8 @@ export const ProviderBidsDetailsHOC: FC = () => {
   const {loading, data, error} = useGetBidDetails({id: bidId});
 
   const executionDate = formatDate(data?.executionDate as string);
-  const vehicleType = data?.vehicleTypes.map(res => res?.name);
+  const vehicleType = data?.vehicleTypes.map(val => val.name);
+
   const serviceType =
     data?.serviceType == 'HOUR' ? 'بالساعة' : data?.serviceType;
 
@@ -34,7 +35,7 @@ export const ProviderBidsDetailsHOC: FC = () => {
   return (
     <>
       <BidDetailsHeader id={bidId} />
-      <BidDetailsMainCard data={data} />
+      <BidDetailsMainCard data={data as BidsDetails} />
       <BidDetailsLocationCard data={data} />
       <BidDetailsCard
         title={i18n.t('BidDetailsVehicleCard')}
@@ -51,7 +52,7 @@ export const ProviderBidsDetailsHOC: FC = () => {
       <AppButton
         title={i18n.t('BidDetailsButton')}
         onPress={() =>
-          navigation.navigate('sendOffer', {data: data as BidsDetails})
+          navigation.navigate('sendOffer', {details: data as BidsDetails})
         }
       />
     </>

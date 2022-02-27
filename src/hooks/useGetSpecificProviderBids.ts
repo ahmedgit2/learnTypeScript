@@ -12,10 +12,10 @@ export const useGetSpecificProviderBids = (lat?: number, lng?: number) => {
   const [error, setError] = useState<string | any>();
 
   useEffect(() => {
-    if (page == 1) {
+    if (page >= 1 && page < pageCount) {
       getBids();
-    } else if (page > 1 && pageCount >= page) {
-      getBids();
+    } else if (page >= 1 && page >= pageCount) {
+      return;
     }
   }, [page]);
 
@@ -29,7 +29,9 @@ export const useGetSpecificProviderBids = (lat?: number, lng?: number) => {
   const fetchMore = () => {
     setError('');
     setPage(page + 1);
-    setLoading(true);
+    if (page >= 1 && page < pageCount) {
+      setLoading(true);
+    }
   };
 
   const getBids = async () => {

@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const useGetVehicles = (props: Props) => {
-  const [data, setData] = useState<ProviderVehicles>();
+  const [vehicles, setVehicles] = useState<ProviderVehicles[]>();
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<any>();
 
@@ -24,7 +24,7 @@ export const useGetVehicles = (props: Props) => {
 
       // check data
       if (providerVehicles.data.length) {
-        setData(providerVehicles.data);
+        setVehicles(providerVehicles.data);
       }
     } catch (error) {
       setError(error);
@@ -35,7 +35,7 @@ export const useGetVehicles = (props: Props) => {
 
   return {
     loading,
-    data,
+    vehicles,
     error,
   };
 };

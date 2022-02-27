@@ -12,7 +12,7 @@ export type RootStackParamList = {
   home: undefined;
   login: undefined;
   detailsScreen: {bidId: number};
-  sendOffer: {data: BidsDetails};
+  sendOffer: {details: BidsDetails};
 };
 export interface Screen {
   name: keyof RootStackParamList;

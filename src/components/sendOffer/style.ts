@@ -67,6 +67,7 @@ export const styles = StyleSheet.create({
   bidDateContainerStyle: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginTop: 5,
   },
   cardContainerStyle: {
     margin: 12,
@@ -84,5 +85,17 @@ export const styles = StyleSheet.create({
     alignItems: 'flex-start',
     marginHorizontal: 10,
     marginTop: 8,
+  },
+  notesCardText: {
+    flexDirection: 'row',
+    marginHorizontal: 10,
+    marginTop: 8,
+    alignSelf: 'stretch',
+    justifyContent: 'space-between',
+  },
+  notesCard: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

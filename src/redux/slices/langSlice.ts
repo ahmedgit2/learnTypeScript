@@ -1,15 +1,16 @@
+import {useSelector} from 'react-redux';
 import {Lang} from './../../utils/lang';
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {RootState} from '../store/store';
 
 // Define a type for the slice state
 interface LangState {
-  value: string;
+  value: Lang;
 }
 
 // Define the initial state using that type
 const initialState: LangState = {
-  value: 'ar',
+  value: Lang.ar,
 };
 
 export const langSlice = createSlice({
@@ -24,8 +25,6 @@ export const langSlice = createSlice({
 
 export const {toggleLang} = langSlice.actions;
 
-export const selectLang = (state: RootState) => {
-  state.lang.value;
-};
+export const selectLang = useSelector((state: RootState) => state.lang.value);
 
 export const langReducer = langSlice.reducer;

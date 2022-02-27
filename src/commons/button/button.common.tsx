@@ -1,11 +1,11 @@
 import React, {FC} from 'react';
-import {View, TouchableOpacity} from 'react-native';
+import {View, TouchableOpacity, StyleProp, ViewStyle} from 'react-native';
 import {RectButton} from 'react-native-gesture-handler';
 import {AppText} from '..';
 import {styles} from './style';
 
 interface Props {
-  style?: object;
+  style?: StyleProp<ViewStyle>;
   textStyle?: object;
   title: string;
   touchableOpacity?: boolean;

@@ -5,9 +5,9 @@ import {styles} from './style';
 import {AppGrid, AppInput, AppText} from '../../commons';
 
 interface Props {
-  errors: string;
-  multiline: string;
-  numberOfLines: number;
+  errors?: string;
+  multiline?: string;
+  numberOfLines?: number;
   onChangeText: (text: string) => void;
 }
 
@@ -22,7 +22,7 @@ export const InputCard: FC<Props> = props => {
         />
       </View>
 
-      <View style={styles.inputCardText}>
+      {/* <View style={styles.inputCardText}>
         <AppText> 0 جم</AppText>
         <AppText>+ 15% قيمة مضافة</AppText>
       </View>
@@ -33,7 +33,7 @@ export const InputCard: FC<Props> = props => {
       <View style={styles.inputCardText}>
         <AppText> 0 جم</AppText>
         <AppText>صافي الربح</AppText>
-      </View>
+      </View> */}
     </AppGrid>
   );
 };
