@@ -1,6 +1,15 @@
+import {Lang} from './../../utils';
+import {appColor} from './../../utils';
 import {StyleSheet} from 'react-native';
+import {store} from '../../store';
+
+const lang = store.getState().lang.value;
 
 export const styles = StyleSheet.create({
+  daysStyle: {
+    fontSize: 14,
+    color: appColor.middleGray,
+  },
   headerStyle: {
     marginHorizontal: 20,
     height: 60,
@@ -25,13 +34,13 @@ export const styles = StyleSheet.create({
     flexGrow: 1,
     marginRight: 20,
     alignSelf: 'stretch',
-    alignItems: 'flex-end',
+    alignItems: lang == Lang.ar ? 'flex-end' : 'flex-start',
   },
   bidDetailsContainerStyle: {
     flexGrow: 1,
     marginRight: 20,
     justifyContent: 'flex-start',
-    alignItems: 'flex-end',
+    alignItems: lang == Lang.ar ? 'flex-end' : 'flex-start',
   },
   bidStatusStyle: {
     backgroundColor: '#E2E2E2',
@@ -43,16 +52,16 @@ export const styles = StyleSheet.create({
     paddingVertical: 1,
   },
   bidDateContainerStyle: {
-    flexDirection: 'row',
+    flexDirection: lang == Lang.ar ? 'row' : 'row-reverse',
     justifyContent: 'space-between',
   },
   cardContainerStyle: {
     margin: 12,
-    flexDirection: 'row',
+    flexDirection: lang == Lang.ar ? 'row' : 'row-reverse',
     justifyContent: 'flex-end',
   },
   clientNameContainerStyle: {
-    flexDirection: 'row',
+    flexDirection: lang == Lang.ar ? 'row' : 'row-reverse',
     flexGrow: 1,
     justifyContent: 'flex-end',
     alignItems: 'flex-start',

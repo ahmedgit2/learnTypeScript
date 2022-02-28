@@ -1,5 +1,6 @@
+import {useSelector} from 'react-redux';
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {RootState} from '../store/store';
+import {RootState} from '../store';
 
 // Define a type for the slice state
 interface UserState {
@@ -23,8 +24,7 @@ export const userSlice = createSlice({
 
 export const {setToken} = userSlice.actions;
 
-export const selectToken = (state: RootState) => {
-  return state.user.token;
-};
+export const selectToken = () =>
+  useSelector((state: RootState) => state.user.token);
 
 export const userReducer = userSlice.reducer;

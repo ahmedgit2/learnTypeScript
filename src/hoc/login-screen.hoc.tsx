@@ -2,19 +2,18 @@ import React, {FC} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {AppButton, AppText} from '../commons';
 import {LoginHeader} from '../components';
-import {useAppDispatch, useAppSelector} from '../hooks';
-import {RootState, setToken} from '../redux';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../navigator';
 import {Lang} from '../utils';
 import ar from '../i18n/ar';
 import en from '../i18n/en';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
+import {selectLang, setToken} from '../slices';
 
 export const LoginScreenHOC: FC = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList, 'login'>>();
-  const lang = useSelector((state: RootState) => state.lang.value);
+  const lang = selectLang();
 
   const dispatch = useDispatch();
 

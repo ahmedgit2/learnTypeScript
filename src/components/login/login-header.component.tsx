@@ -6,8 +6,8 @@ import {styles} from './style';
 import {Lang} from '../../utils';
 import en from '../../i18n/en';
 import ar from '../../i18n/ar';
-import {useAppDispatch} from '../../hooks';
-import {toggleLang} from '../../redux';
+import {useDispatch} from 'react-redux';
+import {toggleLang} from '../../slices';
 
 interface Props {
   lang: Lang;
@@ -17,7 +17,7 @@ export const LoginHeader: FC<Props> = props => {
   const [langText, setLangText] = useState<string>(
     props.lang === Lang.en ? en.currentLang : ar.currentLang,
   );
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
 
   return (
     <View style={styles.headerStyle}>

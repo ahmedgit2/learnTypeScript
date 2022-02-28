@@ -10,4 +10,9 @@ export default {
   BidDetailsServiceCard: 'Service Type',
   BidDetailsDateCard: 'Execution Date',
   BidDetailsButton: 'Send Offer',
+  sendOfferButton: 'Send',
+  vehicleError: 'please choose a vehicle',
+  priceError: 'price offer is missing',
+  statusPending: 'PENDING',
+  statusDone: 'Done',
 };

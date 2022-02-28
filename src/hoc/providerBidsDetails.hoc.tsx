@@ -35,7 +35,7 @@ export const ProviderBidsDetailsHOC: FC = () => {
   return (
     <>
       <BidDetailsHeader id={bidId} />
-      <BidDetailsMainCard data={data as BidsDetails} />
+      <BidDetailsMainCard data={data} />
       <BidDetailsLocationCard data={data} />
       <BidDetailsCard
         title={i18n.t('BidDetailsVehicleCard')}

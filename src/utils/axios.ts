@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {useSelector} from 'react-redux';
-import {store} from '../redux';
+import {store} from '../store';
 
 const instance = axios.create({
   baseURL: 'http://159.65.190.62:3333/api/v1/',

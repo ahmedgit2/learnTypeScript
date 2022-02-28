@@ -1,4 +1,4 @@
-import {Lang} from './../../utils/lang';
+import {Lang} from './../../../../utils/lang';
 import {StyleSheet} from 'react-native';
 
 export const styles = (lang: Lang) => {

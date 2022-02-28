@@ -1,16 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {rootMainStackScreens} from '.';
-import {useAppSelector, useInitialRouteName} from '../hooks';
+import {useInitialRouteName} from '../hooks';
 import {langConfig} from '../i18n';
 import {Lang} from '../utils';
 import {I18nManager} from 'react-native';
+import {selectLang} from '../slices';
 
 const Stack = createNativeStackNavigator();
 
 export const HomeStack = () => {
   const initialRoute = useInitialRouteName();
-  const lang = useAppSelector<Lang>(state => state.lang.value as Lang);
+  const lang = selectLang();
   const [init, setInit] = useState<Boolean>(false);
 
   useEffect(() => {

@@ -8,8 +8,8 @@ import {
   StyleProp,
 } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {useAppSelector} from '../../hooks';
-import {appColor} from '../../utils';
+import {selectLang} from '../../slices';
+import {appColor, Lang} from '../../utils';
 import {styles} from './style';
 
 interface Props {
@@ -21,13 +21,13 @@ interface Props {
 }
 
 export const AppTextLogo: FC<Props> = props => {
-  const language = useAppSelector(state => state.lang.value);
+  const language = selectLang();
 
   return (
     <View
       style={[
         styles.containerStyle,
-        language === 'en' && {flexDirection: 'row-reverse'},
+        language === Lang.en && {flexDirection: 'row-reverse'},
         props.containerStyle,
       ]}>
       <Text style={[styles.textStyle, props.textStyle]}>{props.children}</Text>

@@ -2,15 +2,15 @@ import {View, Text, FlatList} from 'react-native';
 import React, {FC, useMemo} from 'react';
 import {AppLoading, AppText} from '../../commons';
 import {styles as style} from './style';
-import {useAppSelector} from '../../hooks';
 import I18n from 'react-native-i18n';
+import {selectLang} from '../../slices';
 
 interface Props {
   count: number;
 }
 
 export const ProviderBidsHeader: FC<Props> = props => {
-  const language = useAppSelector(state => state.lang.value);
+  const language = selectLang();
   const styles = useMemo(() => style(language), [language]);
 
   return props.count ? (

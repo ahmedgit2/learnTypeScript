@@ -2,17 +2,24 @@ import {View, Text, FlatList} from 'react-native';
 import React, {FC} from 'react';
 import {AppGrid, AppImage, AppRate, AppText} from '../../commons';
 import {styles} from './style';
-import {appColor, howManyDays} from '../../utils';
+import {appColor, howManyDays, Lang} from '../../utils';
 import {BidsDetails} from '../../models';
+import {selectLang} from '../../slices';
+import dayjs from 'dayjs';
+import I18n from 'react-native-i18n';
 
 interface Props {
-  data: BidsDetails;
+  data: BidsDetails | undefined;
 }
 
-export const BidDetailsMainCard: FC<Props> = props => {
-  const {data} = props;
-  const status = data?.status == 'PENDING' ? 'قيد الإنتظار' : 'تم';
-  const createDay = howManyDays(data?.createdAt as string);
+export const BidDetailsMainCard: FC<Props> = ({data}) => {
+  const createdAt = data?.createdAt;
+
+  const status = I18n.t(
+    data?.status === 'PENDING' ? 'statusPending' : 'statusDone',
+    {status: data?.status},
+  );
+  const days = dayjs().diff(createdAt, 'days');
   return (
     <AppGrid style={styles.cardGridStyle}>
       <View style={styles.cardContainerStyle}>
@@ -23,8 +30,8 @@ export const BidDetailsMainCard: FC<Props> = props => {
           </View>
 
           <View style={styles.bidDateContainerStyle}>
-            <AppText style={{fontSize: 14, color: appColor.middleGray}}>
-              {createDay}
+            <AppText style={styles.daysStyle}>
+              {I18n.t('BidCardHowManyDays', {days: days})}
             </AppText>
             <AppText
               style={[

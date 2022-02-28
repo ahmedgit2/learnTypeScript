@@ -3,16 +3,18 @@ import {Alert, ScrollView} from 'react-native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {useGetVehicles, usePostOffer} from '../hooks';
 import {AppButton, AppErrorModal, AppLoading} from '../commons';
+import {RootStackParamList} from '../navigator';
+import {ProviderVehicles} from '../models';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import I18n from 'react-native-i18n';
 import {
   ClintCard,
   Header,
   VehiclesCard,
   InputCard,
   NotesCard,
+  SendButton,
 } from '../components';
-import {RootStackParamList} from '../navigator';
-import {ProviderVehicles} from '../models';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 export const SendBidHOC: FC = () => {
   const {details} =
@@ -30,12 +32,7 @@ export const SendBidHOC: FC = () => {
   const [transportationPrice, setTransportationPrice] = useState<Number>();
   const [notes, setNotes] = useState<string>();
 
-  const {post, error} = usePostOffer({
-    orderBidId: details.id,
-    transportationPrice: transportationPrice as number,
-    providerVehicle: providerVehicle as number,
-    notes: notes as string,
-  });
+  const {post, error} = usePostOffer();
 
   useEffect(() => {
     if (error.message) {
@@ -47,6 +44,27 @@ export const SendBidHOC: FC = () => {
   const _onClose = () => {
     setModalVisible(false);
   };
+
+  // this function is temporary ....
+  const handlePress = async () => {
+    if (!transportationPrice) {
+      setErrorMessage(I18n.t('priceError'));
+      setModalVisible(true);
+    }
+    if (!providerVehicle) {
+      setErrorMessage(I18n.t('vehicleError'));
+      setModalVisible(true);
+    }
+    if (providerVehicle && transportationPrice) {
+      await post({
+        orderBidId: details.id,
+        transportationPrice: transportationPrice as number,
+        providerVehicle: providerVehicle as number,
+        notes: notes as string,
+      });
+    }
+  };
+
   if (loading) {
     return <AppLoading />;
   }
@@ -62,18 +80,13 @@ export const SendBidHOC: FC = () => {
         onChangeText={value => setTransportationPrice(Number(value))}
       />
       <NotesCard onChangeText={value => setNotes(value)} />
-      <AppButton
-        style={{marginTop: 90}}
-        onPress={async () => {
-          setErrorMessage('');
-          await post();
-        }}
-        title={'إرسال'}
-      />
+
+      <SendButton onPress={handlePress} />
+
       <AppErrorModal
         visible={isModalVisible}
         error={errorMessage}
-        onClose={_onClose}
+        onClose={() => setModalVisible(false)}
       />
     </ScrollView>
   );

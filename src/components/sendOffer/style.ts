@@ -1,5 +1,9 @@
+import {Lang} from './../../utils';
+import {appColor} from './../../utils';
 import {StyleSheet} from 'react-native';
+import {store} from '../../store';
 
+const lang = store.getState().lang.value;
 export const styles = StyleSheet.create({
   headerStyle: {
     marginVertical: 0,
@@ -71,7 +75,7 @@ export const styles = StyleSheet.create({
   },
   cardContainerStyle: {
     margin: 12,
-    flexDirection: 'row',
+    flexDirection: lang == Lang.ar ? 'row' : 'row-reverse',
     justifyContent: 'flex-start',
   },
   vehivlesContainerStyle: {
@@ -79,7 +83,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   clientNameContainerStyle: {
-    flexDirection: 'row',
+    flexDirection: lang == Lang.ar ? 'row' : 'row-reverse',
     flexGrow: 1,
     justifyContent: 'flex-end',
     alignItems: 'flex-start',
@@ -97,5 +101,8 @@ export const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  SendButton: {
+    marginTop: 90,
   },
 });

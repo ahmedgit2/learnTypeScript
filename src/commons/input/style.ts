@@ -1,6 +1,6 @@
 import {appColor} from '../../utils/appColors';
 import {StyleSheet} from 'react-native';
-import {store} from '../../redux';
+import {store} from '../../store';
 
 const lang = store.getState().lang.value;
 

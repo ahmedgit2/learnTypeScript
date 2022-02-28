@@ -10,4 +10,9 @@ export default {
   BidDetailsServiceCard: 'الخدمة المطلوبة',
   BidDetailsDateCard: 'تاريخ التنفيذ',
   BidDetailsButton: 'تقديم عرض سعر',
+  sendOfferButton: 'إرسال',
+  vehicleError: 'إختر مركبة أولاً',
+  priceError: 'من فضلك أدخل السعر',
+  statusPending: 'قيد الإنتظار',
+  statusDone: 'تم',
 };

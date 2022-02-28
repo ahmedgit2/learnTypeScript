@@ -11,29 +11,22 @@ interface Props {
   onChangeText: (text: string) => void;
 }
 
-export const InputCard: FC<Props> = props => {
+export const InputCard: FC<Props> = ({
+  onChangeText,
+  errors,
+  multiline,
+  numberOfLines,
+}) => {
   return (
     <AppGrid style={styles.cardGridStyle}>
       <View style={styles.cardContainerStyle}>
         <AppInput
-          onChangeText={props.onChangeText}
+          onChangeText={onChangeText}
           placeholder={'  تقديم عرض *'}
           keyboardType="numeric"
+          error={errors}
         />
       </View>
-
-      {/* <View style={styles.inputCardText}>
-        <AppText> 0 جم</AppText>
-        <AppText>+ 15% قيمة مضافة</AppText>
-      </View>
-      <View style={styles.inputCardText}>
-        <AppText> 0 جم</AppText>
-        <AppText>إجمالي ما سيدفعة العميل</AppText>
-      </View>
-      <View style={styles.inputCardText}>
-        <AppText> 0 جم</AppText>
-        <AppText>صافي الربح</AppText>
-      </View> */}
     </AppGrid>
   );
 };

@@ -25,8 +25,8 @@ export interface BidsDetails {
   serviceType: string;
   country: Country;
   client: Client;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt: Date;
   acceptedOffer: any;
   transportationOrder: any;
   distanceFromPickupInKm: any;

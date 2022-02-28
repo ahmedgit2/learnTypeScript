@@ -1,11 +1,11 @@
 import {FlatList} from 'react-native';
 import React, {FC} from 'react';
 import {AppLoading} from '../../commons';
-import {ProviderBidsCard} from './provider-bids-card.component';
 import {useNavigation} from '@react-navigation/native';
 import {Bid} from '../../models';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../navigator';
+import {ProviderBidsCard} from '.';
 
 interface Props {
   data: Bid[];

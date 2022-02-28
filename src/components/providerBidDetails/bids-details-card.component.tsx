@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {View} from 'react-native';
 import {styles} from './style';
 import {AppGrid, AppText} from '../../commons';
-import {appColor} from '../../utils';
+import {appColor, Lang} from '../../utils';
 
 interface Props {
   text: any;

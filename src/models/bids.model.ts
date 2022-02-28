@@ -24,8 +24,8 @@ export interface Bid {
   serviceType: string;
   country: Country;
   client: Client;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt: Date;
   distanceFromPickupInKm: number;
   offersCount: number;
   offerReceivedDate: any;
