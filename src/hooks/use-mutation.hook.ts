@@ -4,15 +4,16 @@ interface Props<T> {
   dependKey?: string;
   option?: UseMutationOptions<T, Error, T>;
   api: (props: T) => any;
+  payLoad: T;
 }
 
 export const useMutationHook = <T>(props: Props<T>) => {
-  const {option, dependKey, api} = props;
+  const {option, dependKey, api, payLoad} = props;
 
   const {data, error, mutate, ...rest} = useMutation<T, Error, T>(
     [dependKey],
     async () => {
-      return await api(props);
+      return await api(payLoad);
     },
     {
       ...option,
@@ -21,6 +22,8 @@ export const useMutationHook = <T>(props: Props<T>) => {
 
   return {
     mutate,
+    error,
     data,
+    ...rest,
   };
 };
