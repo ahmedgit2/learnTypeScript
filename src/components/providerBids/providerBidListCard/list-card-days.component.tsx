@@ -1,9 +1,9 @@
 import dayjs, {Dayjs} from 'dayjs';
 import React, {FC, useMemo} from 'react';
-import {AppText} from '../../../../commons';
-import {selectLang} from '../../../../slices';
 import {styles as style} from './style';
 import I18n from 'react-native-i18n';
+import {selectLang} from '../../../slices';
+import {AppText} from '../../../commons';
 
 interface Props {
   createdAt: Date;

@@ -5,3 +5,4 @@ export * from './useGetVehicles';
 export * from './useGetSpecificProviderBids';
 export * from './usePostBid';
 export * from './initialRouteName';
+export * from './use-infinite.hook';

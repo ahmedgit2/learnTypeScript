@@ -4,7 +4,6 @@ import {rootMainStackScreens} from '.';
 import {useInitialRouteName} from '../hooks';
 import {langConfig} from '../i18n';
 import {Lang} from '../utils';
-import {I18nManager} from 'react-native';
 import {selectLang} from '../slices';
 
 const Stack = createNativeStackNavigator();
@@ -22,25 +21,19 @@ export const HomeStack = () => {
   }, [lang]);
 
   return (
-    <>
-      {init ? (
-        <Stack.Navigator initialRouteName={initialRoute}>
-          {rootMainStackScreens.map(({component, name}) => {
-            return (
-              <Stack.Screen
-                key={name}
-                name={name}
-                component={component}
-                options={{
-                  headerShown: false,
-                }}
-              />
-            );
-          })}
-        </Stack.Navigator>
-      ) : (
-        <></>
-      )}
-    </>
+    <Stack.Navigator initialRouteName={initialRoute}>
+      {rootMainStackScreens.map(({component, name}) => {
+        return (
+          <Stack.Screen
+            key={name}
+            name={name}
+            component={component}
+            options={{
+              headerShown: false,
+            }}
+          />
+        );
+      })}
+    </Stack.Navigator>
   );
 };

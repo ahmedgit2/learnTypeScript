@@ -1,11 +1,10 @@
 import React, {FC, useMemo} from 'react';
 import {Text, View} from 'react-native';
-import {appColor, formatDate, howManyDays, Lang} from '../../../../utils';
 import {styles as style} from './style';
-import {Bid} from '../../../../models';
-import {selectLang} from '../../../../slices';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import dayjs from 'dayjs';
+import {selectLang} from '../../../slices';
+import {appColor, Lang} from '../../../utils';
 interface Props {
   createdAt: Date;
 }

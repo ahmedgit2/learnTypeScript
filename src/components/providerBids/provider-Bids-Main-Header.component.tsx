@@ -23,6 +23,6 @@ export const ProviderBidsHeader: FC<Props> = props => {
       </AppText>
     </View>
   ) : (
-    <AppLoading />
+    <></>
   );
 };

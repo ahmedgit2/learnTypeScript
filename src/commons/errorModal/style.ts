@@ -4,24 +4,28 @@ import {StyleSheet} from 'react-native';
 export const ModalStyle = StyleSheet.create({
   centeredView: {
     backgroundColor: appColor.white,
-    display: 'flex',
-    flexDirection: 'column',
-    marginTop: '70%',
-    marginHorizontal: 30,
+    width: '85%',
+    height: 'auto',
+    alignSelf: 'center',
+
+    // top: '50%',
+    // left: '50%',
+    flexGrow: 0,
   },
-  modalView: {},
   button: {
     width: 150,
     height: 50,
+    alignSelf: 'center',
   },
 
   modalText: {
-    paddingTop: 30,
+    marginTop: 30,
     textAlign: 'center',
     fontSize: 16,
     lineHeight: 23,
+    alignSelf: 'center',
     fontWeight: 'bold',
-    paddingHorizontal: 30,
+    paddingHorizontal: 20,
     marginBottom: 20,
   },
 });

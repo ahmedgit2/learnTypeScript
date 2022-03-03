@@ -1,15 +1,24 @@
-import {View, Text, StyleProp, TextStyle} from 'react-native';
+import {View, Text, StyleProp, TextStyle, TextProps} from 'react-native';
 import React, {FC} from 'react';
 import {styles} from './style';
+import {selectLang} from '../../slices';
+import {Lang} from '../../utils';
 
-interface Props {
+interface Props extends TextProps {
   style?: StyleProp<TextStyle>;
 }
 
 export const AppText: FC<Props> = props => {
+  const {style, ...rest} = props;
+  const textAlign = selectLang() == Lang.ar ? 'right' : 'left';
+  const writingDirection = selectLang() == Lang.ar ? 'rtl' : 'ltr';
   return (
     <View style={styles.containerStyle}>
-      <Text style={[styles.textStyle, props.style]}>{props.children}</Text>
+      <Text
+        style={[styles.textStyle, {textAlign, writingDirection}, style]}
+        {...rest}>
+        {props.children}
+      </Text>
     </View>
   );
 };

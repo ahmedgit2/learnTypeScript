@@ -1,10 +1,10 @@
 import React, {FC, useMemo} from 'react';
 import {Text, View} from 'react-native';
-import {appColor, formatDate, howManyDays, Lang} from '../../../../utils';
+import {appColor, formatDate, howManyDays, Lang} from '../../../utils';
 import {styles as style} from './style';
-import {selectLang} from '../../../../slices';
-import {AppTextLogo} from '../../../../commons';
-import {Bid} from '../../../../models';
+import {selectLang} from '../../../slices';
+import {AppTextLogo} from '../../../commons';
+import {Bid} from '../../../models';
 
 interface Props {
   data: Bid;

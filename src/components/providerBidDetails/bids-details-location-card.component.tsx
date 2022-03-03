@@ -1,16 +1,18 @@
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 import {View} from 'react-native';
 
-import {styles} from './style';
+import {styles as style} from './style';
 import {AppGrid, AppTextLogo, AppText} from '../../commons';
 import {BidsDetails} from '../../models';
+import {selectLang} from '../../slices';
 
 interface Props {
   data: BidsDetails | undefined;
 }
 
-export const BidDetailsLocationCard: FC<Props> = props => {
-  const {data} = props;
+export const BidDetailsLocationCard: FC<Props> = ({data}) => {
+  const language = selectLang();
+  const styles = useMemo(() => style(language), [language]);
   const title = `${data?.pickUpCity.governorate.name} - ${data?.dropOffCity.governorate.name}`;
   const pickUpCity = `${data?.pickUpCity.name} - ${data?.pickUpCity.governorate.name}`;
   const dropOffCity = `${data?.dropOffCity.name} -${data?.dropOffCity.governorate.name}`;

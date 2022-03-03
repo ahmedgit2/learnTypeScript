@@ -1,17 +1,20 @@
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 import {View} from 'react-native';
-import {styles} from './style';
+import {styles as style} from './style';
 import {AppGrid, AppImage, AppRate, AppText} from '../../commons';
 import {appColor, howManyDays} from '../../utils';
 import {BidsDetails} from '../../models';
 import I18n from 'react-native-i18n';
 import dayjs from 'dayjs';
+import {selectLang} from '../../slices';
 
 interface Props {
   data: BidsDetails | undefined;
 }
 
 export const ClintCard: FC<Props> = ({data}) => {
+  const language = selectLang();
+  const styles = useMemo(() => style(language), [language]);
   const createdAt = data?.createdAt;
   const status = I18n.t(
     data?.status === 'PENDING' ? 'statusPending' : 'statusDone',

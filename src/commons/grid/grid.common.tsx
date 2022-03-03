@@ -7,10 +7,10 @@ interface Props {
   onPress?: () => void;
 }
 
-export const AppGrid: FC<Props> = props => {
+export const AppGrid: FC<Props> = ({children, onPress, style}) => {
   return (
-    <Pressable onPress={props.onPress}>
-      <View style={[styles.containerStyle, props.style]}>{props.children}</View>
+    <Pressable style={[styles.containerStyle, style]} onPress={onPress}>
+      {children}
     </Pressable>
   );
 };

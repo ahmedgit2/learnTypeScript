@@ -1,8 +1,9 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useMemo, useState} from 'react';
 import {View} from 'react-native';
 import {ClickableText} from '../../commons';
 import {ProviderVehicles} from '../../models';
-import {styles} from './style';
+import {selectLang} from '../../slices';
+import {styles as style} from './style';
 
 interface Props {
   data: ProviderVehicles[];
@@ -11,7 +12,8 @@ interface Props {
 
 export const VehiclesSelect: FC<Props> = props => {
   const [selected, setSelected] = useState(String);
-
+  const language = selectLang();
+  const styles = useMemo(() => style(language), [language]);
   return (
     <View style={styles.vehivlesSelectStyle}>
       {props.data?.map(item => (

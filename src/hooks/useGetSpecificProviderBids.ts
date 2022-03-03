@@ -1,5 +1,5 @@
+import {getProviderSpecificBids} from './../api/getProviderSpecificBids';
 import {useEffect, useRef, useState} from 'react';
-import {getProviderBids} from '../api';
 import {Bid} from '../models';
 
 export const useGetSpecificProviderBids = (lat?: number, lng?: number) => {
@@ -12,7 +12,7 @@ export const useGetSpecificProviderBids = (lat?: number, lng?: number) => {
   const [error, setError] = useState<string | any>();
 
   useEffect(() => {
-    if (page >= 1 && page < pageCount) {
+    if (page >= 1) {
       getBids();
     } else if (page >= 1 && page >= pageCount) {
       return;
@@ -38,7 +38,7 @@ export const useGetSpecificProviderBids = (lat?: number, lng?: number) => {
     try {
       // set loading coming from calling func
       //cal func to get api
-      const providerBids = await getProviderBids({
+      const providerBids = await getProviderSpecificBids({
         page: page,
         lat: lat,
         lng: lng,

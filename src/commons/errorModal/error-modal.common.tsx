@@ -1,33 +1,40 @@
 import React, {FC, useState} from 'react';
-import {Modal} from 'react-native';
+import {Modal, View} from 'react-native';
 import {AppButton, AppGrid, AppText} from '..';
+import I18n from 'react-native-i18n';
 
 import {ModalStyle} from './style';
 
 interface Props {
-  style?: object;
   error: string;
   visible: boolean;
   onClose: () => void;
 }
 
-export const AppErrorModal: FC<Props> = props => {
+export const AppErrorModal: FC<Props> = ({error, onClose, visible}) => {
   return (
     <Modal
       transparent={true}
       animationType={'slide'}
-      onDismiss={props.onClose}
-      onRequestClose={props.onClose}
-      visible={props.visible}>
-      <AppGrid style={ModalStyle.centeredView}>
-        <AppText style={ModalStyle.modalText}>{props.error}</AppText>
-        <AppButton
-          touchableOpacity
-          title={'متابعة'}
-          style={ModalStyle.button}
-          onPress={props.onClose}
-        />
-      </AppGrid>
+      onDismiss={onClose}
+      onRequestClose={onClose}
+      visible={visible}>
+      <View
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          flex: 1,
+        }}>
+        <AppGrid style={ModalStyle.centeredView}>
+          <AppText style={ModalStyle.modalText}>{error}</AppText>
+          <AppButton
+            touchableOpacity
+            title={I18n.t('continue')}
+            style={ModalStyle.button}
+            onPress={onClose}
+          />
+        </AppGrid>
+      </View>
     </Modal>
   );
 };

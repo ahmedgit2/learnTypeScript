@@ -13,3 +13,4 @@ export * from './vehicleBrand.model';
 export * from './vehicleModel.model';
 export * from './provider.model';
 export * from './currentLocation.model';
+export * from './page.model';

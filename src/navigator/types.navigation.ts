@@ -1,4 +1,4 @@
-import {Lang} from './../utils';
+import {GeneralScreen, SpecificScreen} from '../screens';
 import {FC} from 'react';
 import {BidsDetails} from '../models';
 import {
@@ -18,6 +18,7 @@ export interface Screen {
   name: keyof RootStackParamList;
   component: FC<any>;
 }
+
 export const rootMainStackScreens: Screen[] = [
   {name: 'home', component: HomeScreen},
   {name: 'login', component: LoginScreen},

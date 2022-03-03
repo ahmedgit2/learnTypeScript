@@ -1,8 +1,10 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useMemo, useState} from 'react';
 import {View} from 'react-native';
 
-import {styles} from './style';
+import {styles as style} from './style';
 import {AppGrid, AppInput, AppText} from '../../commons';
+import I18n from 'react-native-i18n';
+import {selectLang} from '../../slices';
 
 interface Props {
   errors?: string;
@@ -17,12 +19,14 @@ export const InputCard: FC<Props> = ({
   multiline,
   numberOfLines,
 }) => {
+  const language = selectLang();
+  const styles = useMemo(() => style(language), [language]);
   return (
     <AppGrid style={styles.cardGridStyle}>
       <View style={styles.cardContainerStyle}>
         <AppInput
           onChangeText={onChangeText}
-          placeholder={'  تقديم عرض *'}
+          placeholder={I18n.t('offer') + ' *'}
           keyboardType="numeric"
           error={errors}
         />

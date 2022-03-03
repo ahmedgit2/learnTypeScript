@@ -79,6 +79,7 @@ export const SendBidHOC: FC = () => {
       <InputCard
         onChangeText={value => setTransportationPrice(Number(value))}
       />
+
       <NotesCard onChangeText={value => setNotes(value)} />
 
       <SendButton onPress={handlePress} />

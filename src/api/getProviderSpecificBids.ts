@@ -5,13 +5,14 @@ export const getProviderSpecificBids = async ({
   page = 1,
   lat = 30.5965,
   lng = 32.2715,
-  orderType,
+  orderType = 'SPECIFIC',
 }) => {
   try {
-    const providerPids = await axios.get(
+    const providerBids = await axios.get(
       `order-bids/eligible-bids?page=${page}&limit=20&lat=${lat}&lng=${lng}&orderType=${orderType}}`,
     );
-    return providerPids.data;
+
+    return providerBids.data;
   } catch (error) {
     throw mapAxiosError(error);
   }

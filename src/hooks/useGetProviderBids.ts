@@ -1,7 +1,11 @@
+import {Page} from './../models/page.model';
 import {useEffect, useState} from 'react';
 import {getProviderBids} from '../api';
 import {Bid} from '../models';
-
+import {useInfiniteQuery} from 'react-query';
+import {Axios} from 'axios';
+import {axios} from '../utils';
+import {useInfiniteHook} from '.';
 export const useGetProviderBids = (lat?: number, lng?: number) => {
   const [page, setPage] = useState<number>(1);
   const [data, setData] = useState<Bid[]>();
@@ -74,4 +78,16 @@ export const useGetProviderBids = (lat?: number, lng?: number) => {
     refreshing,
     fetchMore,
   };
+};
+interface BidProps {
+  lat: number;
+  lng: number;
+  orderType: 'GENERAL' | 'SPECIFIC';
+}
+export const useEligibleBids = (props: BidProps) => {
+  const {lat, lng, orderType} = props;
+  return useInfiniteHook<Bid>({
+    url: `order-bids/eligible-bids?lat=${lat}&lng=${lng}&orderType=${orderType}`,
+    dependParams: [orderType, lng, lat],
+  });
 };

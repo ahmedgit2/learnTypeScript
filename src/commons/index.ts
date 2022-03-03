@@ -8,3 +8,4 @@ export * from './rate/rate.common';
 export * from './radio/radio-text-selectable.common';
 export * from './image/image.common';
 export * from './textWithLogo/text-with-logo.common';
+export * from './list/list';

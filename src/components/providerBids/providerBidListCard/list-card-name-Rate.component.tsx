@@ -1,8 +1,8 @@
 import React, {FC, useMemo} from 'react';
 import {View} from 'react-native';
-import {AppRate, AppText} from '../../../../commons';
-import {Client} from '../../../../models';
-import {selectLang} from '../../../../slices';
+import {AppRate, AppText} from '../../../commons';
+import {Client} from '../../../models';
+import {selectLang} from '../../../slices';
 import {styles as style} from './style';
 
 interface Props {
@@ -15,8 +15,10 @@ export const CardNameRate: FC<Props> = ({client}) => {
 
   return (
     <View style={styles.clientNameContainerStyle}>
+      <View style={styles.textContainerStyle}>
+        <AppText numberOfLines={1}>{client.user.name}</AppText>
+      </View>
       <AppRate text={client.rate} />
-      <AppText>{client.user.name}</AppText>
     </View>
   );
 };

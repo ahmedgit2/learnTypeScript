@@ -1,7 +1,7 @@
 import {View, Text, FlatList} from 'react-native';
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 import {AppGrid, AppImage, AppRate, AppText} from '../../commons';
-import {styles} from './style';
+import {styles as style} from './style';
 import {appColor, howManyDays, Lang} from '../../utils';
 import {BidsDetails} from '../../models';
 import {selectLang} from '../../slices';
@@ -13,6 +13,8 @@ interface Props {
 }
 
 export const BidDetailsMainCard: FC<Props> = ({data}) => {
+  const language = selectLang();
+  const styles = useMemo(() => style(language), [language]);
   const createdAt = data?.createdAt;
 
   const status = I18n.t(
@@ -20,6 +22,7 @@ export const BidDetailsMainCard: FC<Props> = ({data}) => {
     {status: data?.status},
   );
   const days = dayjs().diff(createdAt, 'days');
+
   return (
     <AppGrid style={styles.cardGridStyle}>
       <View style={styles.cardContainerStyle}>

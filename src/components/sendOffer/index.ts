@@ -5,3 +5,4 @@ export * from './send-offer-vehicles-card.component';
 export * from './send-offer-vehicles-select.component';
 export * from './send-offer-notes-card.component';
 export * from './send-offer-button.component';
+export * from './send-offer-notes-Text.component';

@@ -1,3 +1,4 @@
+import {UnProcessableEntityError} from '.';
 import {
   BadRequestError,
   ConflictError,
