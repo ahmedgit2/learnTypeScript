@@ -3,3 +3,4 @@ export * from './providerBidsDetails.hoc';
 export * from './sendBid.hoc';
 export * from './home-screen.hoc';
 export * from './login-screen.hoc';
+export * from './login.hoc';

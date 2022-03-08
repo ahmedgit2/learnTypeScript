@@ -4,4 +4,5 @@ export * from './SpecificScreen/SpecificScreen';
 export * from './sendBid/sendBid';
 export * from './generalScreen/generalScreen';
 export * from './homeScreen/homeScreen';
-export * from './loginScreen/loginScreen';
+export * from './oldLoginScreen/oldLoginScreen';
+export * from './login/login.screen';

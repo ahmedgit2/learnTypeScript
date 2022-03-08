@@ -1,7 +1,7 @@
 import {View, Text, FlatList, Pressable} from 'react-native';
 import React, {FC, useMemo} from 'react';
 import {AppText} from '../../commons';
-import {styles as style} from './style';
+import {styles as style} from './styles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import {appColor} from '../../utils';

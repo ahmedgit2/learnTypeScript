@@ -1,6 +1,6 @@
 import React, {FC, useMemo} from 'react';
 import {View} from 'react-native';
-import {styles as style} from './style';
+import {styles as style} from './styles';
 import {AppGrid, AppImage, AppRate, AppText} from '../../commons';
 import {appColor, howManyDays} from '../../utils';
 import {BidsDetails} from '../../models';

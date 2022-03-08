@@ -20,13 +20,6 @@ export const useInfiniteHook = <T>(props: Props<T>) => {
   } = useInfiniteQuery<Page<T>, Error, Page<T>>(
     [dependKey || url, restParams],
     async ({pageParam = 1}) => {
-      //   console.log(
-      //     'ffff------->',
-      //     `/${url}${url.includes('?') ? '&' : '?'}page=${pageParam}&limit=${
-      //       limit || 10
-      //     }`,
-      //   );
-
       return fetcher<Page<T>>(
         `/${url}${url.includes('?') ? '&' : '?'}page=${pageParam}&limit=${
           limit || 10

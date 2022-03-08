@@ -1,27 +1,47 @@
-import {StyleSheet} from 'react-native';
-import {appColor} from '../../utils';
+import {PixelRatio, StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  headerStyle: {
-    flexDirection: 'row',
+  welcomeTextContainer: {
+    marginHorizontal: 20,
+    marginBottom: 16,
+  },
+  bigText: {
+    fontSize: 24,
+    color: '#474747',
+    fontWeight: 'bold',
+    lineHeight: 45,
+    letterSpacing: 0.15,
+    textAlign: 'right',
+    marginBottom: 4,
+  },
+  smallText: {
+    fontSize: 18,
+    color: '#474747',
+    fontWeight: 'bold',
+    lineHeight: 33,
+    letterSpacing: 0.11,
+    textAlign: 'right',
+  },
+  logoContainer: {
+    justifyContent: 'center',
     alignItems: 'center',
-    justifyContent: 'flex-end',
-    elevation: 5,
-    backgroundColor: '#FAF9F6',
-    margin: 10,
-    borderRadius: 5,
-    height: 55,
+    marginTop: 79,
+    marginBottom: 57.5,
   },
-  buttonStyle: {
-    height: 40,
-    top: 27,
-    alignSelf: 'flex-end',
-    width: 100,
+  logoStyle: {
+    flexGrow: 1,
+    height: 83,
+    width: 133,
   },
-  textStyle: {
-    marginLeft: 15,
-    fontSize: 17,
-    color: appColor.darkGray,
-    alignSelf: 'flex-start',
+  inputStyle: {
+    height: 60,
+    marginHorizontal: 20,
+    borderRadius: 9,
+    borderColor: '#ECECEC',
+    borderWidth: 1,
+    backgroundColor: '#f9f9f9',
+    alignSelf: 'stretch',
+    color: '#474747',
+    paddingHorizontal: 14,
   },
 });

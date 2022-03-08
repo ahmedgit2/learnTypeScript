@@ -4,6 +4,16 @@ import {StyleSheet} from 'react-native';
 
 export const styles = (lang: Lang) => {
   return StyleSheet.create({
+    errorText: {
+      fontSize: 16,
+      textAlign: lang === 'ar' ? 'right' : 'left',
+      marginHorizontal: 20,
+      color: appColor.errorText,
+      fontWeight: '400',
+      paddingHorizontal: 10,
+      marginBottom: 10,
+    },
+
     headerStyle: {
       marginVertical: 0,
       alignItems: 'center',
@@ -14,7 +24,7 @@ export const styles = (lang: Lang) => {
       flexWrap: 'wrap',
       flexDirection: lang == Lang.ar ? 'row' : 'row-reverse',
       justifyContent: 'flex-end',
-      marginTop: 10,
+      //   marginTop: 10,
       padding: 3,
     },
 
@@ -72,7 +82,7 @@ export const styles = (lang: Lang) => {
       marginTop: 5,
     },
     cardContainerStyle: {
-      margin: 12,
+      margin: 10,
       flexDirection: lang == Lang.ar ? 'row' : 'row-reverse',
       justifyContent: 'flex-start',
     },
@@ -88,17 +98,27 @@ export const styles = (lang: Lang) => {
       marginHorizontal: 10,
       marginTop: 8,
     },
-    notesCardText: {
+    noteCardHeader: {
+      flexDirection: lang == Lang.ar ? 'row' : 'row-reverse',
+      flexGrow: 1,
+      justifyContent: 'flex-end',
+      alignItems: 'flex-start',
+      paddingHorizontal: 20,
+      marginTop: 8,
+    },
+    offerCardText: {
       flexDirection: lang == Lang.ar ? 'row' : 'row-reverse',
       marginHorizontal: 10,
       marginTop: 8,
       alignSelf: 'stretch',
       justifyContent: 'space-between',
     },
-    notesCard: {
+    offerCardTextContainer: {
       flexGrow: 1,
       justifyContent: 'center',
       alignItems: 'center',
+      paddingHorizontal: 12,
+      paddingBottom: 10,
     },
     SendButton: {
       marginTop: 50,

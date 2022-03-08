@@ -28,4 +28,9 @@ export default {
   continue: 'Continue',
   general: 'General',
   specific: 'Specific',
+  welcome: 'Welcome',
+  loginOrCreateAccount: 'Login Or Create Account',
+  next: 'Next',
+  loginError: 'en-xxxxx-en',
+  loginInputLbLabel: 'Phone Number',
 };

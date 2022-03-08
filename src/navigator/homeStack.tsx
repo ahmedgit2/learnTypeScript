@@ -20,7 +20,7 @@ export const HomeStack = () => {
     // I18nManager.forceRTL(lang == Lang.ar ? true : false);
   }, [lang]);
 
-  return (
+  return init ? (
     <Stack.Navigator initialRouteName={initialRoute}>
       {rootMainStackScreens.map(({component, name}) => {
         return (
@@ -35,5 +35,7 @@ export const HomeStack = () => {
         );
       })}
     </Stack.Navigator>
+  ) : (
+    <></>
   );
 };

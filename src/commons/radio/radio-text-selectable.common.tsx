@@ -1,22 +1,21 @@
 import React, {FC} from 'react';
-import {View, Pressable} from 'react-native';
+import {View, Pressable, PressableProps} from 'react-native';
 import {AppText} from '..';
 import {styles} from './style';
 
-interface Props {
-  style?: object;
+interface Props extends PressableProps {
   selected: string;
-  onPress: () => void;
 }
 
 export const ClickableText: FC<Props> = props => {
+  const {...rest} = props;
   return (
     <View
       style={[
         styles.containerStyle,
         props.selected === props.children ? styles.pressed : null,
       ]}>
-      <Pressable onPress={props.onPress}>
+      <Pressable {...rest}>
         <AppText
           style={[
             styles.textStyle,

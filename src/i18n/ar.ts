@@ -28,4 +28,9 @@ export default {
   continue: 'متابعة',
   general: 'عام',
   specific: 'خاص',
+  welcome: 'مرحبا بك',
+  loginOrCreateAccount: 'قم بتسجيل الدخول أو إنشاء حساب',
+  next: 'التالي',
+  loginError: 'ar-xxxxx-ar',
+  loginInputLbLabel: 'رقم الهاتف الجوال',
 };

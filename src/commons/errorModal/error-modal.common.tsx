@@ -6,7 +6,7 @@ import I18n from 'react-native-i18n';
 import {ModalStyle} from './style';
 
 interface Props {
-  error: string;
+  error: string | undefined;
   visible: boolean;
   onClose: () => void;
 }

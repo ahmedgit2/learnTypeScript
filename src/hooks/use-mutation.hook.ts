@@ -1,20 +1,20 @@
-import {UseMutationOptions, useMutation} from 'react-query';
+import {PostOffer} from './../models/post-offer.models';
+import {UseMutationOptions, useMutation, MutationFunction} from 'react-query';
+import {postOffer} from '../api';
+import {axios, mapAxiosError} from '../utils';
 
 interface Props<T> {
   dependKey?: string;
   option?: UseMutationOptions<T, Error, T>;
-  api: (props: T) => any;
-  payLoad: T;
+  api: MutationFunction<T, T>;
 }
 
 export const useMutationHook = <T>(props: Props<T>) => {
-  const {option, dependKey, api, payLoad} = props;
+  const {option, api, dependKey} = props;
 
-  const {data, error, mutate, ...rest} = useMutation<T, Error, T>(
+  const {data, error, mutate, ...rest} = useMutation(
     [dependKey],
-    async () => {
-      return await api(payLoad);
-    },
+    variables => api(variables),
     {
       ...option,
     },

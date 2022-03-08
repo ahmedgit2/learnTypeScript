@@ -1,4 +1,3 @@
-import {GeneralScreen, SpecificScreen} from '../screens';
 import {FC} from 'react';
 import {BidsDetails} from '../models';
 import {

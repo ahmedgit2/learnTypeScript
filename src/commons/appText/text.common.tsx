@@ -9,7 +9,7 @@ interface Props extends TextProps {
 }
 
 export const AppText: FC<Props> = props => {
-  const {style, ...rest} = props;
+  const {style, children, ...rest} = props;
   const textAlign = selectLang() == Lang.ar ? 'right' : 'left';
   const writingDirection = selectLang() == Lang.ar ? 'rtl' : 'ltr';
   return (
@@ -17,7 +17,7 @@ export const AppText: FC<Props> = props => {
       <Text
         style={[styles.textStyle, {textAlign, writingDirection}, style]}
         {...rest}>
-        {props.children}
+        {children}
       </Text>
     </View>
   );
